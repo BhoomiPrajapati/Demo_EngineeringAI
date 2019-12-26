@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		652600F923B4C0C900CF0DF0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652600F823B4C0C900CF0DF0 /* String.swift */; };
 		6566761323B486F80004FC4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6566761223B486F80004FC4B /* Constants.swift */; };
 		6566761523B488920004FC4B /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6566761423B488920004FC4B /* BaseResponse.swift */; };
 		6566761723B489590004FC4B /* APICallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6566761623B489590004FC4B /* APICallError.swift */; };
-		6566761A23B4933C0004FC4B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6566761923B4933C0004FC4B /* Date.swift */; };
 		6566761E23B49D200004FC4B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6566761D23B49D200004FC4B /* UIViewController.swift */; };
 		658BF75D23B47F16009C387C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658BF75C23B47F16009C387C /* AppDelegate.swift */; };
 		658BF75F23B47F16009C387C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658BF75E23B47F16009C387C /* SceneDelegate.swift */; };
@@ -29,10 +29,10 @@
 /* Begin PBXFileReference section */
 		4971C29FBE32C1AD46E078A4 /* Pods-Demo_List.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_List.release.xcconfig"; path = "Target Support Files/Pods-Demo_List/Pods-Demo_List.release.xcconfig"; sourceTree = "<group>"; };
 		5A5B7ADBE124B9710FE3CA5B /* Pods_Demo_List.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_List.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		652600F823B4C0C900CF0DF0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		6566761223B486F80004FC4B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6566761423B488920004FC4B /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		6566761623B489590004FC4B /* APICallError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallError.swift; sourceTree = "<group>"; };
-		6566761923B4933C0004FC4B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		6566761D23B49D200004FC4B /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		658BF75923B47F16009C387C /* Demo_List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo_List.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		658BF75C23B47F16009C387C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 		6566761823B493290004FC4B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				6566761923B4933C0004FC4B /* Date.swift */,
+				652600F823B4C0C900CF0DF0 /* String.swift */,
 				6566761D23B49D200004FC4B /* UIViewController.swift */,
 			);
 			path = Extensions;
@@ -286,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6566761523B488920004FC4B /* BaseResponse.swift in Sources */,
+				652600F923B4C0C900CF0DF0 /* String.swift in Sources */,
 				6566761723B489590004FC4B /* APICallError.swift in Sources */,
 				6566761E23B49D200004FC4B /* UIViewController.swift in Sources */,
 				658BF78423B48028009C387C /* APIManager.swift in Sources */,
@@ -294,7 +295,6 @@
 				658BF78823B481C7009C387C /* ListViewController.swift in Sources */,
 				658BF75D23B47F16009C387C /* AppDelegate.swift in Sources */,
 				658BF75F23B47F16009C387C /* SceneDelegate.swift in Sources */,
-				6566761A23B4933C0004FC4B /* Date.swift in Sources */,
 				658BF77E23B47FD2009C387C /* ListDataTableViewCell.swift in Sources */,
 				6566761323B486F80004FC4B /* Constants.swift in Sources */,
 			);

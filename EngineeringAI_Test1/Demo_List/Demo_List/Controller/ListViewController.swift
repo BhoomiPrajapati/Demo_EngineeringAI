@@ -115,5 +115,4 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             callGetListAPI(showProgress: false)
         }
     }
-    
 }
