@@ -11,6 +11,7 @@ import UIKit
 final class ImageListViewController: UIViewController {
 
     // MARK: - IBoutlet
+    @IBOutlet private weak var collectionUserData: UICollectionView!
     
     // MARK: - Variables
     
@@ -22,7 +23,8 @@ final class ImageListViewController: UIViewController {
     
     // MARK: - Setup
     private func setup() {
-        
+        collectionMediaList.register(UINib(nibName: String(describing: MyChatMediaCollectionViewCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: String(describing: MyChatMediaCollectionViewCell.self))
+        collectionMediaList.register(UINib(nibName: String(describing: MyChatMediaCollectionViewHeader.self), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MyChatMediaCollectionViewHeader.reuseIdentifier)
     }
     
     // MARK: - API call

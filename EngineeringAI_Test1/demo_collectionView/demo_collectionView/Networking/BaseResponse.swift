@@ -10,11 +10,13 @@ import Foundation
 
 class BaseResponse {
     
-    let data : Any?
-    let pages : Int?
+    let status: Bool?
+    let message: String?
+    let data: Any?
     
     init(parameter : [String : Any]) {
-        self.data = parameter["hits"] as? [[String : Any]]
-        self.pages = parameter["nbPages"] as? Int
+        self.data = parameter["data"] as? [String : Any]
+        self.message = parameter["message"] as? String
+        self.status = parameter["status"] as? Bool
     }
 }
