@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import SVProgressHUD
+import MBProgressHUD
 
 final class ListViewController: UIViewController {
-
+    
     // MARK: - IBOutlet
     @IBOutlet private weak var tblList: UITableView!
     
@@ -45,15 +45,13 @@ final class ListViewController: UIViewController {
     // MARK: - API call
     private func callGetListAPI(showProgress: Bool? = false) {
         if showProgress ?? false {
-           // SVProgressHUD.setDefaultMaskType(.clear)
-           // SVProgressHUD.show()
+            self.showProgressHud()
         }
         APIManager.shared.sendRequest(router: APIRouter.getListData(pageNumber: self.pageNumber), onSuccess: { response in
-            //SVProgressHUD.dismiss()
+            self.dismissProgressHud()
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }
-            print(response.data)
             if let dictionaryArray = response.data as? [[String:Any]] {
                 let totalPage = response.pages
                 self.isLoadMore = totalPage == self.pageNumber ? false : true
@@ -69,7 +67,7 @@ final class ListViewController: UIViewController {
                 self.tblList.reloadData()
             }
         }) { error in
-           // SVProgressHUD.dismiss()
+            self.dismissProgressHud()
             self.showAlert(withMessage: error.message)
         }
     }
@@ -84,11 +82,11 @@ final class ListViewController: UIViewController {
         self.callGetListAPI(showProgress: true)
     }
     
-    @objc func switchValueDidChange(_ sender: UISwitch) {
+    @objc private func switchValueDidChange(_ sender: UISwitch) {
         self.arrayOfListData[sender.tag].isOn = sender.isOn
         self.selectedCount = self.arrayOfListData.filter({$0.isOn == true}).count
     }
-
+    
 }
 
 // MARK: - Extension

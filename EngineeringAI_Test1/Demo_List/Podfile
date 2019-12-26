@@ -8,5 +8,6 @@ target 'Demo_List' do
   # Pods for Demo_List
 
     pod 'Alamofire'
-    pod 'SVProgressHUD'
+    #pod 'SVProgressHUD', '~> 2.2.6'
+    pod 'MBProgressHUD'
 end

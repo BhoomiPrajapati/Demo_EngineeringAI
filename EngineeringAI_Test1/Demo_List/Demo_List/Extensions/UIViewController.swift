@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MBProgressHUD
 
 extension UIViewController {
     
@@ -21,6 +22,18 @@ extension UIViewController {
             }
         }
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showProgressHud(){
+        DispatchQueue.main.async {
+             MBProgressHUD.showAdded(to: self.view, animated: true)
+        }
+    }
+
+    func dismissProgressHud() {
+        DispatchQueue.main.async{
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
     }
 }
 
