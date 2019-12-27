@@ -98,7 +98,6 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
         if (indexPath.section == self.arrayOfUsers.count - 1 && self.hasMore == true) {
             self.offset = self.offset + self.limit
             self.callGetUserDataAPI(isShowProgress: false)
-            self.hasMore = false
         }
     }
     
