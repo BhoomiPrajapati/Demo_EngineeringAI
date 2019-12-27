@@ -23,6 +23,7 @@ final class UserImageHeaderView: UICollectionReusableView {
     }
     
     func configure(data: Users) {
+        self.imgUserProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
         if let url = URL(string: data.image ?? "") {
             self.imgUserProfile.sd_setImage(with: url, completed: nil)
         }

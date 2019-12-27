@@ -15,7 +15,7 @@ final class ImageListViewController: UIViewController {
     
     // MARK: - Variables
     private var arrayOfUsers: [Users] = []
-    private var offset = 10
+    private var offset = 0
     private var limit = 10
     private var hasMore = true
     private let refreshControl = UIRefreshControl()
@@ -33,6 +33,12 @@ final class ImageListViewController: UIViewController {
         collectionUserData.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         self.callGetUserDataAPI(isShowProgress: true)
+        
+        let eventImageflowLayout = UICollectionViewFlowLayout()
+        eventImageflowLayout.minimumLineSpacing = 10
+        eventImageflowLayout.minimumInteritemSpacing = 10
+        eventImageflowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        self.collectionUserData.setCollectionViewLayout(eventImageflowLayout, animated: true)
     }
     
     // MARK: - API call
@@ -45,14 +51,13 @@ final class ImageListViewController: UIViewController {
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }
-            print(response.message)
-            print(response.data)
             if let dictionary = response.data {
                 do {
                     let objData = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
                     let objUserList = try JSONDecoder().decode(UserList.self, from: objData)
                     self.hasMore = objUserList.hasMore ?? false
-                    self.arrayOfUsers = objUserList.users ?? []
+                    let tempArray = objUserList.users ?? []
+                    self.arrayOfUsers.append(contentsOf: tempArray)
                 } catch {
                     print("Error parsing the json")
                 }
@@ -93,6 +98,7 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
         if (indexPath.section == self.arrayOfUsers.count - 1 && self.hasMore == true) {
             self.offset = self.offset + self.limit
             self.callGetUserDataAPI(isShowProgress: false)
+            self.hasMore = false
         }
     }
     
@@ -109,18 +115,18 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 96.0)
+        return CGSize(width: collectionView.frame.width, height: 70.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if (self.arrayOfUsers[indexPath.section].items?.count ?? 0) % 2 == 0 {
-            let cellwidth = Int((screenSize.width - 30) / 2)
+            let cellwidth = (collectionView.frame.width - 30 ) / 2
             return CGSize(width: cellwidth, height: cellwidth)
         } else {
             if indexPath.item == 0 {
-                return CGSize(width: (screenSize.width - 20), height: (screenSize.width - 20))
+                return CGSize(width: (collectionView.frame.width - 20), height: (collectionView.frame.width - 20))
             } else {
-                let cellwidth = Int((screenSize.width - 30) / 2)
+                let cellwidth = (collectionView.frame.width - 30 ) / 2
                 return CGSize(width: cellwidth, height: cellwidth)
             }
         }
