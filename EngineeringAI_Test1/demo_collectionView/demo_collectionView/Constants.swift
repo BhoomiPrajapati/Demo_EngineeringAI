@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
 
 let baseURL = "https://sd2-hiring.herokuapp.com/api/users?"
 let appName = "DemoApp"
+let screenSize = UIScreen.main.bounds.size

@@ -112,22 +112,16 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
         return CGSize(width: collectionView.frame.width, height: 96.0)
     }
     
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 20.0)
-    }
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if (self.arrayOfUsers[indexPath.section].items?.count ?? 0) % 2 == 0 {
-            let width  = (view.frame.width - 30)/2
-            return CGSize(width: width, height: width)
+            let cellwidth = Int((screenSize.width - 30) / 2)
+            return CGSize(width: cellwidth, height: cellwidth)
         } else {
             if indexPath.item == 0 {
-                return CGSize(width: collectionView.frame.width-20, height: collectionView.frame.width - 20)
+                return CGSize(width: (screenSize.width - 20), height: (screenSize.width - 20))
             } else {
-                let width = (view.frame.size.width - 30)/2
-                return CGSize(width: width, height: width)
+                let cellwidth = Int((screenSize.width - 30) / 2)
+                return CGSize(width: cellwidth, height: cellwidth)
             }
         }
     }
@@ -138,6 +132,8 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
                 header.configure(data: arrayOfUsers[indexPath.section])
                 return header
             }
+        } else if kind == UICollectionView.elementKindSectionFooter {
+            return UICollectionReusableView()
         }
         return UICollectionReusableView()
     }

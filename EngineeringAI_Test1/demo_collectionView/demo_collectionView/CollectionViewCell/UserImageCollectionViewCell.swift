@@ -21,7 +21,9 @@ final class UserImageCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(data: String) {
-        
+        if let url = URL(string: data) {
+            imgUserData.sd_setImage(with: url, completed: nil)
+        }
     }
 
 }
