@@ -28,6 +28,7 @@ final class ImageListViewController: UIViewController {
     
     // MARK: - Setup
     private func setup() {
+        self.title = "User Image List Demo"
         collectionUserData.register(UINib(nibName: String(describing: UserImageCollectionViewCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: String(describing: UserImageCollectionViewCell.self))
         collectionUserData.register(UINib(nibName: String(describing: UserImageHeaderView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: UserImageHeaderView.reuseIdentifier)
         collectionUserData.register(UINib(nibName: String(describing: CollectionReusableFooterView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "CollectionReusableFooterView")
