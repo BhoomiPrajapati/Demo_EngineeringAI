@@ -16,24 +16,22 @@ protocol Routable {
 }
 
 enum APIRouter: Routable {
-    case getListData(pageNumber: Int)
+    case getUserImageData(offset: Int, limit: Int)
 }
 
 extension APIRouter {
     var path: String {
-        var page = ""
         switch self {
-        case .getListData(let pageNumber):
-            page = "page=" + "\(pageNumber)"
+        case .getUserImageData(let offset, let limit):
+            return baseURL + "offset=\(offset)&limit=\(limit)"
         }
-        return baseURL + page
     }
 }
 
 extension APIRouter {
     var method: HTTPMethod {
         switch self {
-        case .getListData:
+        case .getUserImageData:
             return .get
         }
     }
@@ -42,7 +40,7 @@ extension APIRouter {
 extension APIRouter {
     var parameters: Parameters? {
         switch self {
-        case .getListData:
+        case .getUserImageData:
             return nil
         }
     }

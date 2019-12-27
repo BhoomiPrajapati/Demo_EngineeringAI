@@ -12,7 +12,7 @@ class BaseResponse {
     
     let status: Bool?
     let message: String?
-    let data: Any?
+    let data: [String : Any]?
     
     init(parameter : [String : Any]) {
         self.data = parameter["data"] as? [String : Any]

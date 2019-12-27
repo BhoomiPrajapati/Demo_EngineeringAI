@@ -19,5 +19,9 @@ final class UserImageCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configure(data: String) {
+        
+    }
 
 }

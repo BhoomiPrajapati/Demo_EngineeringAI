@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class UserImageHeaderView: UICollectionReusableView {
 
@@ -21,4 +22,10 @@ final class UserImageHeaderView: UICollectionReusableView {
         // Initialization code
     }
     
+    func configure(data: Users) {
+        if let url = URL(string: data.image ?? "") {
+            self.imgUserProfile.sd_setImage(with: url, completed: nil)
+        }
+        self.lblUsername.text = data.name
+    }
 }

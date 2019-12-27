@@ -8,4 +8,5 @@ target 'demo_collectionView' do
   # Pods for demo_collectionView
     pod 'Alamofire'
     pod 'MBProgressHUD'
+    pod 'SDWebImage'
 end
