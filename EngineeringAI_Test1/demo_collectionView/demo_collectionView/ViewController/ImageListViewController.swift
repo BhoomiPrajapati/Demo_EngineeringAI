@@ -30,6 +30,7 @@ final class ImageListViewController: UIViewController {
     private func setup() {
         collectionUserData.register(UINib(nibName: String(describing: UserImageCollectionViewCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: String(describing: UserImageCollectionViewCell.self))
         collectionUserData.register(UINib(nibName: String(describing: UserImageHeaderView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: UserImageHeaderView.reuseIdentifier)
+        collectionUserData.register(UINib(nibName: String(describing: CollectionReusableFooterView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "CollectionReusableFooterView")
         collectionUserData.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         self.callGetUserDataAPI(isShowProgress: true)
@@ -117,6 +118,10 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
         return CGSize(width: collectionView.frame.width, height: 70.0)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+           return CGSize(width: collectionView.frame.width, height: 8.0)
+       }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if (self.arrayOfUsers[indexPath.section].items?.count ?? 0) % 2 == 0 {
             let cellwidth = (collectionView.frame.width - 30 ) / 2
@@ -138,7 +143,9 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
                 return header
             }
         } else if kind == UICollectionView.elementKindSectionFooter {
-            return UICollectionReusableView()
+            if let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionReusableFooterView", for: indexPath) as? CollectionReusableFooterView {
+                return footer
+            }
         }
         return UICollectionReusableView()
     }
