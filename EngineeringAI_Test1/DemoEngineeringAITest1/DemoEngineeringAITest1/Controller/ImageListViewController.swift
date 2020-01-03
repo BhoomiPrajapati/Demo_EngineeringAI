@@ -76,7 +76,7 @@ final class ImageListViewController: UIViewController {
     
     // MARK: - Helper methods
     @objc private func refresh() {
-        self.offset = 10
+        self.offset = 0
         self.arrayOfUsers.removeAll()
         collectionUserData.reloadData()
         callGetUserDataAPI(isShowProgress: true)

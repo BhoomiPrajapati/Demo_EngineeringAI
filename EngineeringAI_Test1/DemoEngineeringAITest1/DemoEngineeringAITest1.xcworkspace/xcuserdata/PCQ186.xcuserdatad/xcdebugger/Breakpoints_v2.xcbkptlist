@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DemoEngineeringAITest1/CollectionViewCell/UserImageCollectionViewCell.swift"
-            timestampString = "599737650.906762"
+            timestampString = "599739378.395232"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "configure(data:)"
             landmarkType = "7">
          </BreakpointContent>
