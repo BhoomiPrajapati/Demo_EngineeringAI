@@ -23,6 +23,7 @@ final class UserImageCollectionViewCell: UICollectionViewCell {
     
     func configure(data: String) {
         if let url = URL(string: data) {
+            self.imgUserData.sd_imageIndicator = SDWebImageActivityIndicator.gray
             imgUserData.sd_setImage(with: url, completed: nil)
         }
     }
