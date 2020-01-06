@@ -10,6 +10,7 @@ import UIKit
 
 final class CollectionReusableFooterView: UICollectionReusableView {
     
+    static let reuseIdentifier = "CollectionReusableFooterView"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

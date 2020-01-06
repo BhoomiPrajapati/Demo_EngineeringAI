@@ -31,7 +31,7 @@ final class ImageListViewController: UIViewController {
         self.title = "User Image List Demo"
         collectionUserData.register(UINib(nibName: String(describing: UserImageCollectionViewCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: String(describing: UserImageCollectionViewCell.self))
         collectionUserData.register(UINib(nibName: String(describing: UserImageHeaderView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: UserImageHeaderView.reuseIdentifier)
-        collectionUserData.register(UINib(nibName: String(describing: CollectionReusableFooterView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "CollectionReusableFooterView")
+        collectionUserData.register(UINib(nibName: String(describing: CollectionReusableFooterView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CollectionReusableFooterView.reuseIdentifier)
         collectionUserData.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         self.callGetUserDataAPI(isShowProgress: true)
@@ -144,7 +144,7 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
                 return header
             }
         } else if kind == UICollectionView.elementKindSectionFooter {
-            if let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionReusableFooterView", for: indexPath) as? CollectionReusableFooterView {
+            if let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionReusableFooterView.reuseIdentifier, for: indexPath) as? CollectionReusableFooterView {
                 return footer
             }
         }
