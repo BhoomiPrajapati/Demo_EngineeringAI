@@ -67,6 +67,9 @@ final class ListViewController: UIViewController {
             }
         }) { error in
             self.dismissProgressHud()
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
             self.showAlert(withMessage: error.message)
         }
     }
