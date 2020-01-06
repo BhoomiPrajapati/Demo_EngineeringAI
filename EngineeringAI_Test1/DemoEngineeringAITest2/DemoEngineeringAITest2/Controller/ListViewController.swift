@@ -114,4 +114,12 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             callGetListAPI(showProgress: false)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? ListDataTableViewCell {
+            cell.switchStatus.isOn = !cell.switchStatus.isOn
+            self.arrayOfListData[indexPath.row].isOn = cell.switchStatus.isOn
+            self.selectedCount = cell.switchStatus.isOn ? self.selectedCount + 1 : self.selectedCount - 1
+        }
+    }
 }
